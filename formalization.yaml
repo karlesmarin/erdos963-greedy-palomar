@@ -19,7 +19,7 @@ repository:
   role: "thin-wrapper"
   substantive_formalization:
     id: "https://github.com/karlesmarin/formalizations"
-    revision: "4cc9c45f6cd13daa15964715de58db3aad17d4e2"
+    revision: "e9efea0b09824a4f9c7a2a4c7058288c5eb0bfd4"
 
 sources:
   - title: "Extremal problems in number theory"
@@ -46,7 +46,7 @@ related_formalizations:
     note: >-
       The definition Erdos963.f and the statement are copied verbatim from formal-conjectures (Apache-2.0),
       where the statement is tagged research solved without proof.
-  - id: "https://github.com/karlesmarin/formalizations/blob/4cc9c45f6cd13daa15964715de58db3aad17d4e2/Formalizations/Combinatorics/Additive/DissociatedGreedy.lean"
+  - id: "https://github.com/karlesmarin/formalizations/blob/e9efea0b09824a4f9c7a2a4c7058288c5eb0bfd4/Formalizations/Combinatorics/Additive/DissociatedGreedy.lean"
     relationship: "other"
     note: "The substantive development; Solution.lean is that file."
 

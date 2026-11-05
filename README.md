@@ -16,7 +16,7 @@ such that every set of `n` reals has a dissociated subset with at least `k` elem
 
 🧮 The substantive development lives in the collection
 [karlesmarin/formalizations](https://github.com/karlesmarin/formalizations)
-(`Formalizations/Combinatorics/Additive/DissociatedGreedy.lean`, commit `4cc9c45`); this repository is a thin wrapper.
+(`Formalizations/Combinatorics/Additive/DissociatedGreedy.lean`, commit `e9efea0`); this repository is a thin wrapper.
 
 ## 🚀 Build
 
