@@ -1,0 +1,99 @@
+# yaml-language-server: $schema=https://raw.githubusercontent.com/mathlib-initiative/formalization.yaml/main/schema/formalization.schema.json
+version: "v0.4"
+
+project:
+  name: "Erdős Problem 963, greedy variant: dissociated subsets of real sets"
+  description: >-
+    f(n) is the largest k such that every set of n reals has a dissociated subset (all subset sums distinct)
+    with at least k elements. This Lean 4 formalization proves the greedy bound Nat.log 3 n ≤ f n noted by
+    Erdős (1965), as stated in google-deepmind/formal-conjectures (Erdős Problem 963), where it is a solved
+    variant left without proof. The proof: an element outside the {-1, 0, 1}-span of a dissociated set B can be
+    added keeping it dissociated, and that span has at most 3^#B elements. No new mathematics is claimed.
+  authors:
+    - "Carles Marín"
+  responsible_maintainers:
+    - "Carles Marín"
+  license: "Apache-2.0"
+
+repository:
+  role: "thin-wrapper"
+  substantive_formalization:
+    id: "https://github.com/karlesmarin/formalizations"
+    revision: "4cc9c45f6cd13daa15964715de58db3aad17d4e2"
+
+sources:
+  - title: "Extremal problems in number theory"
+    authors: ["P. Erdős"]
+    id: "Proc. Sympos. Pure Math. VIII (1965) 181–189"
+    type: "paper"
+    location: "p. 188, the greedy bound f(n) ≥ ⌊log_3 n⌋"
+    relationship: "formalizes"
+    note: "Erdős states the bound and attributes it to the greedy algorithm; the Lean proof is that argument."
+    author_endorsement: "n/a"
+  - title: "Erdős Problem #963"
+    contributors:
+      - name: "Paul Erdős"
+        role: "problem-proposer"
+    id: "https://www.erdosproblems.com/963"
+    type: "web discussion"
+    relationship: "background"
+    note: "The open questions there ask for the growth of f(n); this entry proves only the greedy lower bound."
+    author_endorsement: "n/a"
+
+related_formalizations:
+  - id: "https://github.com/google-deepmind/formal-conjectures/blob/main/FormalConjectures/ErdosProblems/963.lean"
+    relationship: "builds-on"
+    note: >-
+      The definition Erdos963.f and the statement are copied verbatim from formal-conjectures (Apache-2.0),
+      where the statement is tagged research solved without proof.
+  - id: "https://github.com/karlesmarin/formalizations/blob/4cc9c45f6cd13daa15964715de58db3aad17d4e2/Formalizations/Combinatorics/Additive/DissociatedGreedy.lean"
+    relationship: "other"
+    note: "The substantive development; Solution.lean is that file."
+
+classification:
+  arxiv: ["math.CO", "math.NT"]
+  msc2020: ["05D05", "11B13"]
+
+status:
+  scope: "The statement in Challenge.lean, proved in Solution.lean."
+  sorry_count: 0
+  sorry_in_definitions: 0
+  axioms: ["propext", "Classical.choice", "Quot.sound"]
+  main_results:
+    - declaration: "Erdos963.erdos_963.variants.greedy"
+      file: "Solution.lean"
+      sorry_count: 0
+      axioms: ["propext", "Classical.choice", "Quot.sound"]
+      comparator_config: "comparator.json"
+      literature_dependencies: []
+
+automation:
+  methods:
+    - method: "agent"
+      models: ["Claude (Anthropic)"]
+      framework: "Claude Code"
+      tool_setup: >-
+        An AI agent wrote the Lean proof and this metadata, iterating against the Lean compiler and
+        Mathlib on the author's machine; the author chose the problem and directed the work.
+      prompting_notes: >-
+        The task required the formal-conjectures definition and statement verbatim, standard axioms
+        only and a warning-free build.
+
+fidelity:
+  divergences: "None. Definition, docstrings and statement are identical to formal-conjectures."
+
+review:
+  status: "unchecked"
+  reviewers: []
+  notes: "No human review beyond the author's direction of the work. The proof is checked by the Lean kernel."
+
+alignment:
+  namespace: "Erdos963"
+  statements:
+    - source: "Erdős (1965), p. 188: f(n) ≥ ⌊log_3 n⌋"
+      lean: "Erdos963.erdos_963.variants.greedy"
+      module: "Challenge"
+      status: "proved"
+
+acknowledgements: >-
+  Definition and statement from google-deepmind/formal-conjectures (Apache-2.0); Mathlib.
